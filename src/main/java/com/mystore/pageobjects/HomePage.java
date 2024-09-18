@@ -1,0 +1,41 @@
+package com.mystore.pageobjects;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.mystore.actiondriver.Action;
+import com.mystore.base.BaseClass;
+
+public class HomePage extends BaseClass {
+
+	@FindBy(xpath = "//a[text()='Phones']")
+	WebElement phones;
+
+	@FindBy(xpath = "//a[text()='Laptops']")
+	WebElement laptops;
+
+	@FindBy(xpath = "//a[text()='Monitors']")
+	WebElement monitors;
+
+	public HomePage() {
+		PageFactory.initElements(driver, this);
+	}
+	public ProductPage ClickOnProduct() {
+		Action.click(driver, laptops);
+		return new ProductPage();
+	}
+
+	public boolean validatePhones() {
+		return Action.isDisplayed(driver, phones);
+	}
+
+	public boolean validatelaptops() {
+		return Action.isDisplayed(driver, laptops);
+	}
+
+	public boolean validateMonitors() {
+		return Action.isDisplayed(driver, monitors);
+	}
+
+}
