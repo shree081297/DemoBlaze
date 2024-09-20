@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.mystore.actiondriver.Action;
+import com.mystore.actiondriver.Common;
 import com.mystore.base.BaseClass;
 
 public class AddToCartPage extends BaseClass{
@@ -24,19 +24,19 @@ public class AddToCartPage extends BaseClass{
 	public AddToCartPage() {
 		PageFactory.initElements(driver, this);
 	}
-	public boolean ValidateProductName() {
-		return Action.isDisplayed(driver, ProductName);
+	public boolean ValidateProductName() throws Throwable{
+		return Common.isDisplayed(driver, ProductName);
 	}
-	public boolean ValidateProductPrice() {
-		return Action.isDisplayed(driver, ProductPrice);
+	public boolean ValidateProductPrice() throws Throwable{
+		return Common.isDisplayed(driver, ProductPrice);
 	}
-	public void clickOnAddToCart() {
-		Action.click(driver, AddToCartBtn);
-		Action.Alert(driver);
+	public void clickOnAddToCart() throws Throwable{
+		Common.click(driver, AddToCartBtn);
+		Common.Alert(driver);
 		
 	}
-	public CheckoutPage clickOnMiniCart() {
-		Action.click(driver, miniCart);
-		return new CheckoutPage();
+	public MiniCart clickOnMiniCart()throws Throwable {
+		Common.click(driver, miniCart);
+		return new MiniCart();
 	}
 	}

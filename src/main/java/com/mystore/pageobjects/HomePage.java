@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.mystore.actiondriver.Action;
+import com.mystore.actiondriver.Common;
 import com.mystore.base.BaseClass;
 
 public class HomePage extends BaseClass {
@@ -22,20 +22,23 @@ public class HomePage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 	public ProductPage ClickOnProduct() {
-		Action.click(driver, laptops);
+		Common.click(driver, laptops);
 		return new ProductPage();
 	}
 
-	public boolean validatePhones() {
-		return Action.isDisplayed(driver, phones);
+	public boolean validatePhones() throws Throwable{
+		return Common.isDisplayed(driver, phones);
 	}
 
-	public boolean validatelaptops() {
-		return Action.isDisplayed(driver, laptops);
+	public boolean validatelaptops() throws Throwable{
+		return Common.isDisplayed(driver, laptops);
 	}
 
-	public boolean validateMonitors() {
-		return Action.isDisplayed(driver, monitors);
+	public boolean validateMonitors()throws Throwable {
+		return Common.isDisplayed(driver, monitors);
 	}
-
+	public String validateCurrentURL() {
+		String HomePageURL=driver.getCurrentUrl();
+		return HomePageURL;
+	}
 }
