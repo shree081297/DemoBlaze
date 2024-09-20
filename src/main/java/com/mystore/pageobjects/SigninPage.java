@@ -33,4 +33,15 @@ public class SigninPage extends BaseClass {
 	public boolean ValidateSiginBtn() throws Throwable{
 		return Common.isDisplayed(driver, signupBtn);
 	}
+	
+	public HomePage SigninToApp(String un,String pwd) {
+		Common.explicitWait(Signinuser, 4);
+		Common.type(Signinuser, un);
+		Common.explicitWait(SigninPwd, 4);
+		Common.type(SigninPwd, pwd);
+		Common.click(driver, signupBtn);
+		
+		///Common.Alert(driver);
+		return new HomePage();
+	}
 }
