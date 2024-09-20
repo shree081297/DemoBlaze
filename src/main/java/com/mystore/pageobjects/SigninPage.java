@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.mystore.actiondriver.Action;
+import com.mystore.actiondriver.Common;
 import com.mystore.base.BaseClass;
 
 public class SigninPage extends BaseClass {
@@ -22,15 +22,15 @@ public class SigninPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean ValidateSiginuser() {
-		return Action.isDisplayed(driver, Signinuser);
+	public boolean ValidateSiginuser()throws Throwable {
+		return Common.isDisplayed(driver, Signinuser);
 	}
 
-	public boolean ValidateSiginPwd() {
-		return Action.isDisplayed(driver, SigninPwd);
+	public boolean ValidateSiginPwd() throws Throwable{
+		return Common.isDisplayed(driver, SigninPwd);
 	}
 
-	public boolean ValidateSiginBtn() {
-		return Action.isDisplayed(driver, signupBtn);
+	public boolean ValidateSiginBtn() throws Throwable{
+		return Common.isDisplayed(driver, signupBtn);
 	}
 }

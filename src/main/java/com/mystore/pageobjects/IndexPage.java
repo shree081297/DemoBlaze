@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.mystore.actiondriver.Action;
+import com.mystore.actiondriver.Common;
 import com.mystore.base.BaseClass;
 
 public class IndexPage extends BaseClass {
@@ -29,22 +29,22 @@ public class IndexPage extends BaseClass {
 	}
 	
 	public LoginPage clickOnLogin() {
-		Action.click(driver,loginBtn);
+		Common.click(driver,loginBtn);
 		return new LoginPage();
 	}
 	public boolean validateLogo() {
-		return Action.isDisplayed(driver,logo);
+		return Common.isDisplayed(driver,logo);
 	}
-	public String getMytitle() {
+	public String getMytitle() throws Throwable{
 		String title=driver.getTitle();
 		return title;
 	}
-	public void clickOnProduct() {
-		Action.click(driver, laptopBtn);
+	public void clickOnProduct() throws Throwable{
+		Common.click(driver, laptopBtn);
 	}
 	
-	public SigninPage clickSigin() {
-		Action.click(driver, signin);
+	public SigninPage clickSigin() throws Throwable{
+		Common.click(driver, signin);
 		return new SigninPage();
 	}
 }

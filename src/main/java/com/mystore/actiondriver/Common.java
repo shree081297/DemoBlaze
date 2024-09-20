@@ -32,7 +32,7 @@ import com.mystore.base.BaseClass;
  * @author Hitendra Verma added on 13th March2019
  *
  */
-public class Action extends BaseClass  {
+public class Common extends BaseClass  {
 
 	public void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -46,7 +46,10 @@ public class Action extends BaseClass  {
 		act.moveToElement(ele).click().build().perform();
 
 	}
+public static void click(WebElement locator,WebElement element) {
+	locator.click();
 
+}
 	public static boolean findElement(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		try {
@@ -134,9 +137,9 @@ public class Action extends BaseClass  {
 			// logger.info("Entered text :"+text);
 			flag = true;
 		} catch (Exception e) {
-			System.out.println("Location Not found");
+			//System.out.println("Location Not found");
 			flag = false;
-		} finally {
+	} finally {
 			if (flag) {
 				System.out.println("Successfully entered value");
 			} else {
@@ -146,6 +149,7 @@ public class Action extends BaseClass  {
 		}
 		return flag;
 	}
+	
 
 	
 	public boolean selectBySendkeys(String value,WebElement ele) {
@@ -713,7 +717,7 @@ public class Action extends BaseClass  {
 	}
 	
 	
-	public boolean click1(WebElement locator, String locatorName) {
+	public static  boolean click1(WebElement locator, String locatorName) {
 		boolean flag = false;
 		try {
 			locator.click();
@@ -732,7 +736,7 @@ public class Action extends BaseClass  {
 	}
 	
 	
-	public void fluentWait(WebDriver driver,WebElement element, int timeOut) {
+	public static void fluentWait(WebElement element, int timeOut) {
 	    Wait<WebDriver> wait = null;
 	    try {
 	        wait = new FluentWait<WebDriver>((WebDriver) driver)
@@ -748,11 +752,16 @@ public class Action extends BaseClass  {
 	public static void implicitWait(WebDriver driver, int timeOut) {
 		driver.manage().timeouts().implicitlyWait( Duration.ofSeconds(10));
 	}
-	
-	public void explicitWait(WebDriver driver, WebElement element, Duration timeOut ) {
+	public static void explicitWait(WebElement element, long waitTimeInSeconds) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTimeInSeconds));
+		WebElement elements = null;
+		elements = wait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+	}
+	/*public static void explicitWait(WebDriver driver, WebElement element, Duration timeOut ) {
 		WebDriverWait wait = new WebDriverWait(driver,timeOut);
 		wait.until(ExpectedConditions.visibilityOf(element));
-	}
+	}*/
 	
 	public static void pageLoadTimeOut(WebDriver driver, int timeOut) {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofNanos(timeOut));
@@ -779,5 +788,7 @@ public class Action extends BaseClass  {
 		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
 		return currentDate;
 	}
+
+	
 
 }
