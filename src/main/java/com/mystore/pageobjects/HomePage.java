@@ -21,7 +21,10 @@ public class HomePage extends BaseClass {
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
-	public ProductPage ClickOnProduct() {
+	public ProductPage ClickOnProduct() throws Throwable {
+		//Common.explicitWait(laptops, 6);
+		//Common.scrollByVisibilityOfElement(driver, laptops);
+		Thread.sleep(6000);
 		Common.click(driver, laptops);
 		return new ProductPage();
 	}

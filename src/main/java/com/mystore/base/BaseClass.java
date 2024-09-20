@@ -24,7 +24,7 @@ public class BaseClass {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					"C:\\Users\\srika\\eclipse-workspace\\MyStoreProjectPractice\\Configuration\\Config.properties");
+					"C:\\Users\\srika\\OneDrive\\Desktop\\EndToEnd\\DemoBlaze\\Configuration\\Config.properties");
 			prop.load(ip);
 			// System.out.println("driver:"+ driver);
 		} catch (FileNotFoundException e) {

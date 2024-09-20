@@ -21,7 +21,7 @@ public class ProductPage extends BaseClass{
 	public ProductPage() {
 		PageFactory.initElements(driver, this);
 	}
-	public AddToCartPage clickOnProduct()throws Throwable {
+	public AddToCartPage clickProduct()throws Throwable {
 		Common.click(driver, product);
 		return new  AddToCartPage();
 	}

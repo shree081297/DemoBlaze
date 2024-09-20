@@ -34,7 +34,7 @@ import com.mystore.base.BaseClass;
  */
 public class Common extends BaseClass  {
 
-	public void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
+	public static void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 
